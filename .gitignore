@@ -1,0 +1,10 @@
+/bin/
+/web/bundles/
+/web/js/*.js
+/web/css/*.css
+/web/export/
+/app/bootstrap*
+/app/cache/*
+/app/logs/*
+/vendor/
+/app/config/parameters.yml
