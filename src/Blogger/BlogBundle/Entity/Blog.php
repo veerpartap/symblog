@@ -1,0 +1,274 @@
+<?php
+
+namespace Blogger\BlogBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * Blog
+ */
+class Blog
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $title;
+
+    /**
+     * @var string
+     */
+    private $author;
+
+    /**
+     * @var string
+     */
+    private $blog;
+
+    /**
+     * @var string
+     */
+    private $image;
+
+    /**
+     * @var string
+     */
+    private $tags;
+
+    /**
+     * @var \DateTime
+     */
+    private $created;
+
+    /**
+     * @var \DateTime
+     */
+    private $updated;
+
+    /**
+     * @var array
+     */
+    protected $comments;
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+    }
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Blog
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set author
+     *
+     * @param string $author
+     * @return Blog
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+    
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return string 
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set blog
+     *
+     * @param string $blog
+     * @return Blog
+     */
+    public function setBlog($blog)
+    {
+        $this->blog = $blog;
+    
+        return $this;
+    }
+
+    /**
+     * Get blog
+     *
+     * @return string 
+     */
+    public function getBlog()
+    {
+        return $this->blog;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Blog
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set tags
+     *
+     * @param string $tags
+     * @return Blog
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+    
+        return $this;
+    }
+
+    /**
+     * Get tags
+     *
+     * @return string 
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Blog
+     */
+    public function setCreated()
+    {
+        if(!isset($this->created))
+            $this->created = new \DateTime();
+    
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Blog
+     */
+    public function setUpdated()
+    {
+        if(!isset($this->updated))
+            $this->updated = new \DateTime();
+    
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \Blogger\BlogBundle\Entity\Comment $comments
+     * @return Blog
+     */
+    public function addComment(\Blogger\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+    
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \Blogger\BlogBundle\Entity\Comment $comments
+     */
+    public function removeComment(\Blogger\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    public function __toString()
+    {
+        return $this->title;
+    }
+}

@@ -17,3 +17,11 @@ blogger_blog_contact:
     defaults: { _controller: BloggerBlogBundle:Page:contact }
     requirements:
         _method:  GET|POST
+
+BloggerBlogBundle_blog:
+    resource: "@BloggerBlogBundle/Resources/config/routing/blog.yml"
+    prefix:   /blog
+
+BloggerBlogBundle_comment:
+    resource: "@BloggerBlogBundle/Resources/config/routing/comment.yml"
+    prefix:   /comment

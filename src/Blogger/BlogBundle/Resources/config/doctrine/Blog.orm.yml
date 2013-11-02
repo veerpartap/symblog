@@ -1,0 +1,32 @@
+Blogger\BlogBundle\Entity\Blog:
+    type: entity
+    table: blog
+    repositoryClass: Blogger\BlogBundle\Entity\BlogRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        title:
+            type: string
+            length: 255
+        author:
+            type: string
+            length: 255
+        blog:
+            type: text
+        image:
+            type: string
+            length: 255
+        tags:
+            type: text
+        created:
+            type: datetime
+        updated:
+            type: datetime
+    oneToMany:
+        comments:
+            targetEntity: Comment
+            mappedBy: blog
+    lifecycleCallbacks: {  }

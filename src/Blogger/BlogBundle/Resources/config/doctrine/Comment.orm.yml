@@ -1,0 +1,30 @@
+Blogger\BlogBundle\Entity\Comment:
+    type: entity
+    table: comments
+    repositoryClass: Blogger\BlogBundle\Entity\CommentRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        user:
+            type: string
+            length: 255
+        comment:
+            type: string
+            length: 255
+        approved:
+            type: boolean
+        created:
+            type: datetime
+        updated:
+            type: datetime
+    manyToOne:
+        blog:
+            targetEntity: Blog
+            inversedBy: comments
+            joinColumn:
+                name: blog_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }
